@@ -58,7 +58,7 @@ int main()
 
 HANDLE是Windows系统最常用的一种数据结构，通常叫做句柄，用来表示一个窗口，一个设备抽象等等，创建一个窗口，或者修改一些东西的时候经常要创建或者获取句柄。
 
-上面通过GetStdHandle获取了标准输出设备的句柄，t通过SetConsoleTextAttribute修改了标准输出的颜色。所以接下来的输出就变色了。
+上面通过GetStdHandle获取了标准输出设备的句柄，通过SetConsoleTextAttribute修改了标准输出的颜色。所以接下来的输出就变色了。
 
 ## 蒙多想去哪就去哪
 
