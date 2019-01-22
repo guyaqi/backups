@@ -135,7 +135,6 @@ char words[][128] = {
 int main()
 {
 
-	PBYTE keys = new BYTE[256];
 	int count;
 	BOOL warning = FALSE;
 
