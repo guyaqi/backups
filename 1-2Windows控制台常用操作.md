@@ -173,7 +173,7 @@ GetKeyState获取某个键是否被按下，按下返回负数。参数是一种
 
 
             Colors
-        1. White & Blue
+        1. White & Green
     ->  2. Red & Grey
         3. White & Black
         4. White & Blue
