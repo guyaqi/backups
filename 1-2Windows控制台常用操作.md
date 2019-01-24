@@ -45,7 +45,7 @@ int main()
 	while (true) {
 		fc = rand() % 16;
 		bc = rand() % 16;
-		SetConsoleTextAttribute(handle, fc<<4 + bc);
+		SetConsoleTextAttribute(handle, fc<<(4 + bc));
 		putchar('#');
 	}
 	return 0;
