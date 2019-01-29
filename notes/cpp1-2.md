@@ -14,9 +14,9 @@ WindowsAPI的函数大多名称较长，如果不是有意向专门学习的话�
 
 int main()
 {
-	system("color 3f");
-	printf("Hello, world.\n");
-	return 0;
+    system("color 3f");
+    printf("Hello, world.\n");
+    return 0;
 }
 ```
 不同操作系统的命令行环境有很大不同。在仅仅使用标准输入输出的时候差别不大，所以一般只涉及输入输出的程序代码，稍作修改或者不用修改就能正常的在其他操作系统编译并使用。
@@ -36,19 +36,19 @@ int main()
 
 int main()
 {
-	int fc, bc;
-	HANDLE handle;
+    int fc, bc;
+    HANDLE handle;
 
-	handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	srand(time(0));
+    handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    srand(time(0));
 
-	while (true) {
-		fc = rand() % 16;
-		bc = rand() % 16;
-		SetConsoleTextAttribute(handle, (fc<<4) + bc);
-		putchar('#');
-	}
-	return 0;
+    while (true) {
+        fc = rand() % 16;
+        bc = rand() % 16;
+        SetConsoleTextAttribute(handle, (fc<<4) + bc);
+        putchar('#');
+    }
+    return 0;
 }
 
 ```
@@ -70,19 +70,19 @@ HANDLE是Windows系统最常用的一种数据结构，通常叫做句柄，用�
 
 int main()
 {
-	HANDLE handle;
-	COORD coord;
+    HANDLE handle;
+    COORD coord;
 
-	handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	srand(time(0));
+    handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    srand(time(0));
 
-	for (int i = 0; i < 20; i++) {
-		coord.X = rand() % 40;
-		coord.Y = rand() % 18;
-		SetConsoleCursorPosition(handle, coord);
-		printf("Hello, world.");
-	}
-	return 0;
+    for (int i = 0; i < 20; i++) {
+        coord.X = rand() % 40;
+        coord.Y = rand() % 18;
+        SetConsoleCursorPosition(handle, coord);
+        printf("Hello, world.");
+    }
+    return 0;
 }
 
 ```
@@ -102,18 +102,18 @@ SetConsoleCursorPosition设置了光标的位置，光标在哪，当然就从�
 
 int main()
 {
-	HANDLE handle;
-	CONSOLE_CURSOR_INFO cursor = {100,FALSE};
+    HANDLE handle;
+    CONSOLE_CURSOR_INFO cursor = {100,FALSE};
 
-	handle = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleCursorInfo(handle, &cursor);
+    handle = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorInfo(handle, &cursor);
 
-	printf("Loading");
-	for (int i = 0; i < 5; i++) {
-		putchar('.');
-		Sleep(1000);
-	}
-	return 0;
+    printf("Loading");
+    for (int i = 0; i < 5; i++) {
+        putchar('.');
+        Sleep(1000);
+    }
+    return 0;
 }
 ```
 
@@ -127,36 +127,36 @@ int main()
 #include <Windows.h>
 
 char words[][128] = {
-	"别碰我！",
-	"咸猪手！",
-	"离我远点！"
+    "别碰我！",
+    "咸猪手！",
+    "离我远点！"
 };
 
 int main()
 {
 
-	int count;
-	BOOL warning = FALSE;
+    int count;
+    BOOL warning = FALSE;
 
-	srand(time(0));
-	
-	while (true) {
-		
-		count = 0;
-		for (int i = 65; i <= 90; i++) {
-			if (GetKeyState(i) >= 0)
-				count++;
-		}
+    srand(time(0));
+    
+    while (true) {
+        
+        count = 0;
+        for (int i = 65; i <= 90; i++) {
+            if (GetKeyState(i) >= 0)
+                count++;
+        }
 
-		if (count == 26) {
-			system("cls");
-			warning = FALSE;
-		} else if(!warning){
-			printf("%s", words[rand()%3]);
-			warning = TRUE;
-		}
-	}
-	return 0;
+        if (count == 26) {
+            system("cls");
+            warning = FALSE;
+        } else if(!warning){
+            printf("%s", words[rand()%3]);
+            warning = TRUE;
+        }
+    }
+    return 0;
 }
 ```
 
