@@ -13,14 +13,14 @@
 int main() {
     wchar_t str[] = L"Hello, world!";
     SetConsoleTitle(str);
-    system("pause");
+    getchar();
     return 0;
 }
 
 ```
 
 注意控制台的窗口标题改变了。
-pause指令是为了防止程序直接运行结束，那样标题就会被重置。
+getchar是为了防止程序直接运行结束，那样标题就会被重置。
 
 ## 江南皮革厂倒闭了
 
@@ -50,4 +50,26 @@ int main() {
 
 ```
 
-## 
+## 私人订制
+
+```
+#include <stdio.h>
+#include <string.h>
+#include <Windows.h>
+
+int main() {
+	system("mode con: cols=120 lines=35");
+	system("color 3f");
+	printf("您的专属豪华版控制台:)");
+	getchar();
+	
+	return 0;
+}
+
+```
+
+没错只不过是改了大小。。。
+
+## End
+
+作业暂时没有，明天争取继续更新。
